@@ -1,0 +1,1 @@
+# mistral-worldwide-hackathon-2026-strategy
