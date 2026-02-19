@@ -20,7 +20,7 @@
   Source: https://worldwide-hackathon.mistral.ai/
 - **Per-location prizes:** 1st ($1,500 + $3,000 credits), 2nd ($1,000 + $2,000 credits), 3rd ($500 + credits).  
   Source: https://worldwide-hackathon.mistral.ai/ and https://luma.com/mistralhack-london
-- **Special awards (global/sponsor):** Best Vibe usage, Best use of ElevenLabs, Best video game project, Best use of agent skills.  
+- **Special awards (global/sponsor):** Best Vibe usage (AirPods), Best use of ElevenLabs ($2K credits/member), Best video game project (Game Boy), Best use of agent skills (**Custom Reachy Mini robot — physical, non-cash**).  
   Source: https://worldwide-hackathon.mistral.ai/
 - **Sponsors mentioned:** W&B, NVIDIA, AWS, Hugging Face, ElevenLabs, Supercell (+ regional sponsors).  
   Source: https://worldwide-hackathon.mistral.ai/
@@ -33,18 +33,21 @@
 
 ## 2) Best Prize-Track Selection Matrix (ranked by win probability)
 
-| Rank | Track / Prize Bucket | Fit to Existing Assets | Build Effort | Estimated Win Probability* | Why this rank |
-|---|---|---|---|---|---|
-| 1 | **Best Use of Agent Skills** (special award) | **Very high** (already have AI agent + liquidation monitoring logic) | Medium | **High** | Directly aligned with our current code strengths; easiest differentiation via agent behavior and tooling depth. |
-| 2 | **Local Podium (1st/2nd/3rd)** | High | Medium | Medium-High | 48h hackathons reward clean demos + reliability; we can ship a polished, practical product fast. |
-| 3 | **Global Winner** | Medium-High | High | Medium-Low | Strong upside, but highest competition and requires exceptional novelty + presentation polish. |
-| 4 | **Best Vibe Usage** | Medium | Medium | Medium | Depends on quality of integration with Mistral “Vibe” capabilities and visible UX impact. |
-| 5 | **Best use of ElevenLabs** | Medium | Medium | Medium-Low | Adds scope (voice pipeline) and can distract from core alpha unless tightly scoped. |
-| 6 | **Best Video Game Project** | Low | High | Low | Weak fit for our current repo assets; avoid for this cycle. |
+> ⚠️ **CORRECTED Feb 2026 (adversary gate):** "Best Use of Agent Skills" prize is a **Custom Reachy Mini robot** (physical hardware, non-cash). It was previously ranked #1 under a mistaken assumption of cash value. Primary cash targets are Global Winner and Online Podium. Matrix updated accordingly.
+
+| Rank | Track / Prize Bucket | Prize Value | Fit to Existing Assets | Build Effort | Estimated Win Probability* | Why this rank |
+|---|---|---|---|---|---|---|
+| 1 | **Global Winner** | $10,000 cash + $15,000 credits + hiring | Medium-High | High | Medium-Low | Highest cash value; requires exceptional novelty + polish; worth targeting with same build |
+| 2 | **Online Podium 1st** | $1,500 cash + $3,000 credits | High | Medium | Medium-High | 48h hackathons reward clean demos + reliability; strong fit for our agent tooling |
+| 3 | **Online Podium 2nd/3rd** | $1,000/$500 cash + credits | High | Medium | Medium-High | Same build path as 1st; floor protection if 1st is competitive |
+| 4 | **Best Use of ElevenLabs** | $2,000/member in credits | Medium | Medium | Medium-Low | Adds voice scope; only pursue if it fits naturally into demo flow |
+| 5 | **Best Use of Agent Skills** | Custom Reachy Mini robot (non-cash) | Very High | Medium | High | Strong fit, but prize is a physical robot — deprioritized vs. cash tracks |
+| 6 | **Best Vibe Usage** | Branded AirPods (non-cash) | Medium | Medium | Medium | Non-cash; only if Mistral Vibe integration is natural |
+| 7 | **Best Video Game Project** | Game Boy + Supercell consideration | Low | High | Low | Weak fit; avoid |
 
 \*Relative probability estimate for internal prioritization only.
 
-**Recommendation:** Optimize for **Agent Skills + Local Podium** first, then position the same project narrative for Global Winner.
+**Recommendation:** Optimize for **Global Winner + Online Podium** (cash) first. Agent Skills (robot) is a natural byproduct of the same build — do not deprioritize the code quality for it, but do not optimize toward it over cash prizes.
 
 ---
 
@@ -66,6 +69,8 @@
 
 **Why judges care:** Real-world pain point + measurable outcome (reduced liquidation events, faster response).
 
+**Status:** Baseline scaffold live at https://github.com/mgnlia/riskpilot-m — uv-based, Mistral API integrated, tool-calling spike functional.
+
 ## Backup concept (if DeFi data/API risk blocks primary)
 ## **IncidentPilot-M — On-call Incident Triage Agent for Dev Teams**
 
@@ -75,16 +80,16 @@
 - Existing agent orchestration patterns
 - Existing dashboard and alerting UX scaffolding
 
-**Why this backup:** Keeps “agent skills” strength while removing on-chain/API volatility risk.
+**Why this backup:** Keeps "agent skills" strength while removing on-chain/API volatility risk.
 
 ---
 
 ## 4) Required Submission Checklist (execution-ready)
 
 ## A. Code & Repo
-- [ ] Public GitHub repo (clean README, setup, architecture, license)
-- [ ] `uv`-based Python setup (`uv sync`, `uv run ...`)
-- [ ] Reproducible `.env.example`
+- [x] Public GitHub repo (clean README, setup, architecture, license) — https://github.com/mgnlia/riskpilot-m
+- [x] `uv`-based Python setup (`uv sync`, `uv run ...`)
+- [x] Reproducible `.env.example`
 - [ ] No dead links, no placeholder demo URLs
 
 ## B. Demo
@@ -96,7 +101,7 @@
 - [ ] 200–400 word concise writeup
 - [ ] Architecture diagram (PNG/SVG + README embed)
 - [ ] 3–5 screenshots/GIFs with captions
-- [ ] “Built with” list explicitly includes Mistral stack
+- [ ] "Built with" list explicitly includes Mistral stack
 
 ## D. Compliance/Quality
 - [ ] Team size ≤ 4 confirmed
@@ -106,23 +111,23 @@
 
 ---
 
-## 5) 10-Day Sprint Plan (owners + milestones)
+## 5) Sprint Plan (updated to reflect current state)
 
-Assume **D-10 = now**, **D0 = hackathon start**.
+Hackathon starts Feb 28. Today ~Feb 20. ~8 days remain.
 
-| Day | Owner | Milestone | Exit Criteria |
+| Milestone | Owner | Status | Exit Criteria |
 |---|---|---|---|
-| D-10 | Henry + PM | Lock primary + backup scope | One-page scope freeze, success metric chosen |
-| D-9 | Dev Lead | Repo hardening + baseline runbook | Clean install/run on fresh machine |
-| D-8 | Agent Eng | Mistral integration spike | Working prompt/tool loop demo |
-| D-7 | Data/Backend | Protocol adapter stabilization | Risk score + health-factor outputs stable |
-| D-6 | Frontend | Demo UI pass | Core flows clickable with realistic data |
-| D-5 | QA | Reliability + failure-mode testing | Known error paths handled, no hard crashes |
-| D-4 | Content | Draft Devpost writeup + architecture diagram | First complete submission draft |
-| D-3 | Demo Owner | Record v1 demo video | 2–3 min watchable cut |
-| D-2 | Team | Judge simulation + polish | 2 mock judge Q&A rounds complete |
-| D-1 | Team | Final packaging + freeze | Final repo tag + final links ready |
-| D0/D1 | Team | Hackathon execution window | Submit on-time with all artifacts |
+| Repo + baseline spike | Dev/Sage | ✅ DONE | riskpilot-m live, basic + tool-loop modes working |
+| Strategy doc corrected | Adversary gate | ✅ DONE | Prize matrix updated (this commit) |
+| **Registration proof** | **HUMAN** | ❌ **BLOCKING** | Screenshot/URL of Luma wallet verification posted in task |
+| Protocol adapter (D-7) | Dev | ❌ Not started | Health-factor scoring with mock on-chain data |
+| Demo UI (D-6) | Dev | ❌ Not started | Streamlit or rich-CLI showing risk score + next action |
+| QA / failure modes (D-5) | Dev | ❌ Not started | No hard crashes on bad input |
+| Submission writeup + diagram (D-4) | Sage | ❌ Not started | Draft writeup + architecture diagram in README |
+| Demo video v1 (D-3) | Human | ❌ Not started | 2–3 min watchable cut uploaded to YouTube |
+| Judge simulation + polish (D-2) | Team | ❌ Not started | 2 mock Q&A rounds complete |
+| Final freeze (D-1) | Team | ❌ Not started | Final repo tag + all links ready |
+| Hackathon execution (D0/D1) | Team | — | Submit on-time |
 
 ---
 
@@ -130,23 +135,27 @@ Assume **D-10 = now**, **D0 = hackathon start**.
 
 | Risk | Probability | Impact | Mitigation |
 |---|---|---|---|
+| **Registration not approved** | **High** | **Critical** | **Human must submit wallet verification at https://luma.com/mistralhack-online TODAY. Confirmation window closes ~Feb 21.** |
 | Submission mechanics change late | Medium | High | Attend Feb 25 briefing; keep checklist modular; assign one owner to rules watch. |
 | API instability / model limits | Medium | High | Pre-cache fallback responses; maintain a degraded local/mock mode. |
 | Over-scoping during 48h | High | High | Strict MVP gate: one killer flow > many half-features. |
 | DeFi data dependency outages | Medium | Medium-High | Backup concept (IncidentPilot-M) ready by D-5. |
 | Demo failure (latency/network) | Medium | High | Record deterministic backup video + local fallback demo script. |
-| Judges don’t grasp value quickly | Medium | High | First 20 seconds: “who/what/value” + one concrete before/after metric. |
+| Judges don't grasp value quickly | Medium | High | First 20 seconds: "who/what/value" + one concrete before/after metric. |
 
 ---
 
-## Final Recommendation (do this now)
-1. **Commit to Primary:** RiskPilot-M (Agent Skills + Local Podium focus).  
-2. **Use backup only if blocked by D-5:** switch to IncidentPilot-M.  
-3. **Optimize for judging:** reliable end-to-end demo, explicit Mistral usage, measurable impact metric, clean submission artifacts.
+## Final Recommendation
+1. **IMMEDIATE:** Human operator submits Luma registration + wallet verification.  
+2. **Cash targets:** Global Winner + Online Podium (not Agent Skills robot).  
+3. **Next code milestone:** Protocol adapter with health-factor scoring (D-7).  
+4. **Optimize for judging:** reliable end-to-end demo, explicit Mistral usage, measurable impact metric, clean submission artifacts.
 
 ---
 
 ## Quick Sources
 - Official worldwide page: https://worldwide-hackathon.mistral.ai/
+- Online registration: https://luma.com/mistralhack-online
 - London city page (practical details): https://luma.com/mistralhack-london
 - Paris city page (cross-check): https://luma.com/mistralhack-paris
+- RiskPilot-M repo: https://github.com/mgnlia/riskpilot-m
